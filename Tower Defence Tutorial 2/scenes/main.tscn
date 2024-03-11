@@ -1,0 +1,75 @@
+[gd_scene load_steps=19 format=3 uid="uid://bicds2m5db1rt"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_v86jn"]
+[ext_resource type="PackedScene" uid="uid://nagf3wga0hl5" path="res://GLTF format/tile_spawn.glb" id="2_surja"]
+[ext_resource type="PackedScene" uid="uid://c761kboc0ijqe" path="res://scenes/tile_straight.tscn" id="3_0md0b"]
+[ext_resource type="PackedScene" uid="uid://4d85a2dgl3uv" path="res://scenes/tile_corner.tscn" id="4_m20sr"]
+[ext_resource type="PackedScene" uid="uid://bxxd71s8d4v3k" path="res://scenes/tile_crossroads.tscn" id="5_qo75y"]
+[ext_resource type="PackedScene" uid="uid://c2aikhr5xe7rj" path="res://GLTF format/enemy_ufoPurple.glb" id="6_c50bn"]
+[ext_resource type="PackedScene" uid="uid://l8vm8ugm1r2p" path="res://scenes/tile_empty.tscn" id="7_siooe"]
+[ext_resource type="PackedScene" uid="uid://5etd7uhyffhl" path="res://scenes/tile_crystal.tscn" id="8_w873u"]
+[ext_resource type="PackedScene" uid="uid://ck8a5yoidonyn" path="res://scenes/tile_rock.tscn" id="9_jhier"]
+[ext_resource type="PackedScene" uid="uid://4ctio0qtetnd" path="res://scenes/tile_tree.tscn" id="10_a3mvy"]
+[ext_resource type="PackedScene" uid="uid://vakibsxr2jb6" path="res://scenes/basic_enemy.tscn" id="11_co51m"]
+[ext_resource type="Resource" uid="uid://c526qx7hcv7rm" path="res://resources/wave_01.tres" id="12_ycvxi"]
+[ext_resource type="PackedScene" uid="uid://cb2bhc8in57ei" path="res://scenes/activity_button.tscn" id="12_ysc21"]
+[ext_resource type="Resource" uid="uid://jqwsc0jp4pbq" path="res://resources/wave_02.tres" id="13_kt6jn"]
+[ext_resource type="Texture2D" uid="uid://coff43jjxdthr" path="res://images/cannon01a.png" id="13_vsydc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_68pxf"]
+
+[sub_resource type="Sky" id="Sky_agvvx"]
+sky_material = SubResource("ProceduralSkyMaterial_68pxf")
+
+[sub_resource type="Environment" id="Environment_15mdy"]
+background_mode = 2
+sky = SubResource("Sky_agvvx")
+adjustment_enabled = true
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_v86jn")
+tile_start = ExtResource("2_surja")
+tile_end = ExtResource("2_surja")
+tile_straight = ExtResource("3_0md0b")
+tile_corner = ExtResource("4_m20sr")
+tile_crossroads = ExtResource("5_qo75y")
+tile_enemy = ExtResource("6_c50bn")
+tile_empty = Array[PackedScene]([ExtResource("7_siooe"), ExtResource("7_siooe"), ExtResource("7_siooe"), ExtResource("7_siooe"), ExtResource("8_w873u"), ExtResource("9_jhier"), ExtResource("10_a3mvy")])
+basic_enemy = ExtResource("11_co51m")
+enemy_waves = Array[Resource("res://scripts/wave.gd")]([ExtResource("12_ycvxi"), ExtResource("13_kt6jn"), ExtResource("12_ycvxi")])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 7.19978, 10.8156, 11.767)
+fov = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.845527, 0.233096, -0.480365, 0.484259, -0.713729, 0.506048, -0.224892, -0.660498, -0.716356, 0, 3.21451, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_15mdy")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.055)
+
+[node name="ActivityButton" parent="Control" instance=ExtResource("12_ysc21")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+activity_button_icon = ExtResource("13_vsydc")

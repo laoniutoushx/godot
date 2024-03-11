@@ -1,0 +1,32 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://r6n3wqtdm04u"
+path="res://.godot/imported/snow_detail_crystalLarge.glb-4affb1ade5e5b0ba8b576c6ff5ea7d65.scn"
+
+[deps]
+
+source_file="res://GLTF format/snow_detail_crystalLarge.glb"
+dest_files=["res://.godot/imported/snow_detail_crystalLarge.glb-4affb1ade5e5b0ba8b576c6ff5ea7d65.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={}
+gltf/embedded_image_handling=1

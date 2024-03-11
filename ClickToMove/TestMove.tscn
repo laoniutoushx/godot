@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://2tu4giirksbf"]
+
+[ext_resource type="Script" path="res://ClickToMove.gd" id="1_sllft"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdhv5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uy262"]
+material = SubResource("StandardMaterial3D_pdhv5")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ii6gs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_up2ba"]
+
+[sub_resource type="Sky" id="Sky_nw241"]
+sky_material = SubResource("ProceduralSkyMaterial_up2ba")
+
+[sub_resource type="Environment" id="Environment_m4u6f"]
+background_mode = 2
+sky = SubResource("Sky_nw241")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_nlcm6"]
+vertices = PackedVector3Array(-6.10085, 0.047561, -4.13206, -6.10085, 0.047561, 4.11794, -0.10085, 0.047561, 4.11794, -0.10085, 0.047561, -4.13206, -0.10085, 0.047561, 4.11794, 6.14915, 0.047561, 4.11794, 6.14915, 0.047561, -4.13206, -0.10085, 0.047561, -4.13206)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+cell_height = 0.01
+
+[sub_resource type="BoxMesh" id="BoxMesh_b2wpi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tphsx"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_sllft")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04022, 0)
+mesh = SubResource("CapsuleMesh_uy262")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1.05145e-15, 9.0782e-09, 0.184235, 0.192453, -9.07821e-09, -2.86106e-23, 8.4124e-09, 0.207685, -8.05317e-09, -0.0369217, 1.50941, -0.592087)
+mesh = SubResource("CapsuleMesh_uy262")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00552, 0)
+shape = SubResource("CapsuleShape3D_ii6gs")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+path_desired_distance = 0.1
+target_desired_distance = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
+transform = Transform3D(1, 0, 0, 0, 0.941753, 0.336307, 0, -0.336307, 0.941753, 0, 8.35581, 10.2783)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m4u6f")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1.00157, 0, 0, 0, 1.00157, 0, 0, 0, 1.00157, 0, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_nlcm6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(13.2017, 0, 0, 0, 0.064878, 0, 0, 0, 9.26412, 0, 0, 0)
+mesh = SubResource("BoxMesh_b2wpi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_tphsx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.502341, 0.86467, 0, -0.86467, 0.502341, 0, 10.9668, 0)

@@ -1,0 +1,8 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1697350298
+default_env.tres::Environment::-1::1697350292::0::1::::<><>::
+icon.png::CompressedTexture2D::3896809943878907034::1594307634::1697350299::1::::<><>::
+Main.gd::GDScript::-1::1697350292::0::1::::<>Node3D<>::
+Main.tscn::PackedScene::-1::1697350292::0::1::::<><>::res://rotate.gd<>res://Main.gd
+README.md::TextFile::-1::1594307634::0::1::::<><>::
+rotate.gd::GDScript::-1::1697350292::0::1::::<>Node3D<>::

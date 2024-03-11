@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://38dw0pn8dnlm"]
+
+[ext_resource type="PackedScene" uid="uid://nk53f2br72ai" path="res://assert/mixamo/godot_test_unit.gltf" id="1_f1knt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ek53a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q2wq7"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10.7731, 0, 0, 0, 0.555084, 0, 0, 0, 11.9968, 0, 0, 0)
+mesh = SubResource("BoxMesh_ek53a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.455329, 0, 0, 0, 3.10799, 0, 0, 0, 4.87668, 0, 1.84068, 0)
+mesh = SubResource("BoxMesh_q2wq7")
+
+[node name="godot_test_unit" parent="." instance=ExtResource("1_f1knt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26825, 0, 0.570642)

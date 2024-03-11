@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb2bhc8in57ei"]
+
+[ext_resource type="Script" path="res://scripts/activity_button.gd" id="1_si3oo"]
+[ext_resource type="PackedScene" uid="uid://331yr2rfiteg" path="res://scenes/turrent_1.tscn" id="3_eyufc"]
+
+[node name="ActivityButton" type="Button"]
+custom_minimum_size = Vector2(96, 96)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_si3oo")
+activity_draggable = ExtResource("3_eyufc")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b076x7j3sqndy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ur6ci"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hm76"]
+albedo_color = Color(0.52549, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_52aqh"]
+material = SubResource("StandardMaterial3D_1hm76")
+size = Vector3(1, 2, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_m7oir"]
+inner_radius = 0.75
+outer_radius = 0.8
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["units"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_ur6ci")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_52aqh")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.402907, 0, 0, 0, 0.300375, 0, 0, 0, 0.677056, 0, 1.34668, -0.597434)
+mesh = SubResource("BoxMesh_52aqh")
+skeleton = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+height = 2.0
+
+[node name="SelectionRing" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("TorusMesh_m7oir")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bws7tvhlu44g5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fh66r"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_plcfn"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Root" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.476589, 1.64127)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_fh66r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_plcfn")

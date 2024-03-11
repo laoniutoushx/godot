@@ -1,0 +1,101 @@
+[gd_scene load_steps=17 format=3 uid="uid://d35guaiag34he"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_cfxjs"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_ctvg2"]
+[ext_resource type="Resource" path="res://hmap_data/data.hterrain" id="2_fuxxj"]
+[ext_resource type="Texture2D" uid="uid://djt6s24ka4rsp" path="res://heightmap_slot0_albedo_bump.png" id="4_6wl4n"]
+[ext_resource type="Texture2D" uid="uid://keiqccx0i22k" path="res://heightmap_slot1_albedo_bump.png" id="5_qjysv"]
+[ext_resource type="Texture2D" uid="uid://dkpsxkt6ekvq0" path="res://heightmap_slot0_normal_roughness.png" id="6_qjfvw"]
+[ext_resource type="Texture2D" uid="uid://d6r8jm3bwaxf" path="res://heightmap_slot1_normal_roughness.png" id="7_vystt"]
+
+[sub_resource type="Environment" id="Environment_6as6h"]
+ambient_light_color = Color(0.858824, 0.541176, 0.631373, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_m8cx6"]
+
+[sub_resource type="Resource" id="Resource_0onsh"]
+script = ExtResource("2_ctvg2")
+mode = 0
+textures = [[ExtResource("4_6wl4n"), ExtResource("5_qjysv")], [ExtResource("6_qjfvw"), ExtResource("7_vystt")]]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1j5e7"]
+radius = 10.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7s23s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_niwok"]
+radius = 10.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n24i6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6dfkw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bep00"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6as6h")
+camera_attributes = SubResource("CameraAttributesPractical_m8cx6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 188.898, 145.237, 220.335)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.92616, 0.270643, -0.262639, 0, 0.696414, 0.71764, 0.37713, 0.66465, -0.644991, 0, 47.0819, 0)
+
+[node name="HTerrain" type="Node3D" parent="."]
+script = ExtResource("1_cfxjs")
+centered = true
+_terrain_data = ExtResource("2_fuxxj")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_0onsh")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale_per_texture = Vector4(1, 1, 1, 0)
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+shader_params/u_globalmap_blend_start = null
+shader_params/u_globalmap_blend_distance = null
+shader_params/u_colormap_opacity_per_texture = null
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 22, -4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_1j5e7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_7s23s")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69, 0)
+shape = SubResource("SphereShape3D_niwok")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 69, 0)
+mesh = SubResource("CapsuleMesh_n24i6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 204, 1, 191)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_6dfkw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_bep00")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.079, 2.64929, 0)
+use_collision = true

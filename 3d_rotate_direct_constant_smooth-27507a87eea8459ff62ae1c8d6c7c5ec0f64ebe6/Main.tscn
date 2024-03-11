@@ -1,0 +1,164 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyj7ollnuexf8"]
+
+[ext_resource type="Script" path="res://rotate.gd" id="1"]
+[ext_resource type="Script" path="res://Main.gd" id="2"]
+
+[sub_resource type="PrismMesh" id="1"]
+
+[sub_resource type="BoxMesh" id="3"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("2")
+
+[node name="Direct" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+script = ExtResource("1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Direct"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.410128, 0, 1, -1.79273e-08, 0, 0, 1.43858)
+mesh = SubResource("1")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="Direct"]
+transform = Transform3D(0.36975, 0, 0, 0, 0.301528, 0, 0, 0, 1.3304, 0, 0, -0.407867)
+mesh = SubResource("3")
+
+[node name="Constant" type="Node3D" parent="."]
+script = ExtResource("1")
+mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Constant"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.410128, 0, 1, -1.79273e-08, 0, 0, 1.43858)
+mesh = SubResource("1")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="Constant"]
+transform = Transform3D(0.36975, 0, 0, 0, 0.301528, 0, 0, 0, 1.3304, 0, 0, -0.407867)
+mesh = SubResource("3")
+
+[node name="Smooth" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+script = ExtResource("1")
+mode = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Smooth"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.410128, 0, 1, -1.79273e-08, 0, 0, 1.43858)
+mesh = SubResource("1")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="Smooth"]
+transform = Transform3D(0.36975, 0, 0, 0, 0.301528, 0, 0, 0, 1.3304, 0, 0, -0.407867)
+mesh = SubResource("3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.199678, -0.670383, 0.714643, 0.930684, 0.0983952, 0.352344, -0.306523, 0.735462, 0.604267, 0, -7.10405, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 8.05804e-08, -1.27697e-07, -1.5744e-08, 0.785447, 0.61893, 1.50173e-07, 0.61893, -0.785447, -1.00723e-06, 9.30694, -8.10295)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Up" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 661.582
+offset_top = 162.564
+offset_right = 716.582
+offset_bottom = 212.564
+
+[node name="Label" type="Label" parent="Control/Up"]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Up"
+
+[node name="Down" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 661.582
+offset_top = 224.564
+offset_right = 716.582
+offset_bottom = 274.564
+
+[node name="Label" type="Label" parent="Control/Down"]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Down"
+
+[node name="Left" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 585.582
+offset_top = 224.564
+offset_right = 640.582
+offset_bottom = 274.564
+
+[node name="Label" type="Label" parent="Control/Left"]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Left"
+
+[node name="Right" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 731.582
+offset_top = 224.564
+offset_right = 786.582
+offset_bottom = 274.564
+
+[node name="Label" type="Label" parent="Control/Right"]
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Right"
+
+[node name="Direct" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 275.998
+offset_top = 228.582
+offset_right = 297.999
+offset_bottom = 250.582
+color = Color(1, 0.215686, 0.215686, 1)
+
+[node name="Label" type="Label" parent="Control/Direct"]
+layout_mode = 0
+offset_left = 37.5871
+offset_top = 3.99629
+offset_right = 82.5871
+offset_bottom = 17.9963
+text = "DIRECT"
+
+[node name="Constant" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 275.998
+offset_top = 260.895
+offset_right = 297.999
+offset_bottom = 282.895
+color = Color(0.054902, 0.717647, 0.0823529, 1)
+
+[node name="Label" type="Label" parent="Control/Constant"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 4.0
+offset_right = 107.0
+offset_bottom = 18.0
+text = "CONSTANT"
+
+[node name="Smooth" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 275.998
+offset_top = 297.447
+offset_right = 297.999
+offset_bottom = 319.447
+color = Color(0.145098, 0.509804, 0.72549, 1)
+
+[node name="Label" type="Label" parent="Control/Smooth"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 18.0
+text = "SMOOTH"

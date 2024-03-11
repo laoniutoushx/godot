@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "IkFvcywbbwgBxqbZpry4c2TggRbGNbRojWesU+aAuWW2eg9LMCUK8yaWN+ZHq+hIqtCft1DCSVsj053zYqlNWA==",
+  "success": true,
+  "projectFilePath": "H:\\Godot\\Projects\\squash_the_creeps_start_1.1.0\\Squash the Creeps (3D).csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SuzumiyaHaruhi\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "C:\\Users\\SuzumiyaHaruhi\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
+    "C:\\Users\\SuzumiyaHaruhi\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512",
+    "C:\\Users\\SuzumiyaHaruhi\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\SuzumiyaHaruhi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\SuzumiyaHaruhi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

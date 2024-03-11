@@ -1,0 +1,73 @@
+[gd_scene load_steps=16 format=3 uid="uid://nrj7chw6juwv"]
+
+[ext_resource type="Texture2D" uid="uid://7s4hscr1nob7" path="res://images/explosion/l1.png" id="1_blb7y"]
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="1_p7jnl"]
+[ext_resource type="Texture2D" uid="uid://2l71ruc2bgim" path="res://images/explosion/light1.png" id="2_g3lok"]
+[ext_resource type="Texture2D" uid="uid://5oauq1y6fv5g" path="res://images/explosion/BOOM_00001.png" id="3_23t3t"]
+[ext_resource type="Texture2D" uid="uid://d2pot371lmm4w" path="res://images/explosion/BOOM_00002.png" id="4_lkyt2"]
+[ext_resource type="Texture2D" uid="uid://clitjiyl351m" path="res://images/explosion/BOOM_00003.png" id="5_6jdrx"]
+[ext_resource type="Texture2D" uid="uid://b5ercyfgst1l8" path="res://images/explosion/BOOM_00004.png" id="6_ix8ut"]
+[ext_resource type="Texture2D" uid="uid://bpj5owah1rnts" path="res://images/explosion/BOOM_00005.png" id="7_nxv4v"]
+[ext_resource type="Texture2D" uid="uid://dbjb4dfpmmxfe" path="res://images/explosion/BOOM_00006.png" id="8_cvlpq"]
+[ext_resource type="Texture2D" uid="uid://ckm8fc8qmvhvl" path="res://images/explosion/BOOM_00007.png" id="9_klbkb"]
+[ext_resource type="Texture2D" uid="uid://cb4tft462od85" path="res://images/explosion/BOOM_00008.png" id="10_qfd2h"]
+[ext_resource type="Texture2D" uid="uid://c25l7qtv5hmpm" path="res://images/explosion/BOOM_00009.png" id="11_u8rcp"]
+[ext_resource type="Texture2D" uid="uid://du4t3llmo76gm" path="res://images/explosion/BOOM_00010.png" id="12_52bhl"]
+[ext_resource type="Texture2D" uid="uid://bv0g1x8qg5frr" path="res://images/explosion/BOOM_00011.png" id="13_y7nlk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_erjpd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_blb7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g3lok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_23t3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lkyt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6jdrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ix8ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nxv4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cvlpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_klbkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfd2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u8rcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_52bhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y7nlk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_p7jnl")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_erjpd")
+frame_progress = 0.517104
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

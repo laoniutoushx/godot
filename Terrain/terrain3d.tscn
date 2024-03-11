@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://deg0y8uvcu4qn"]
+
+[sub_resource type="Terrain3DStorage" id="Terrain3DStorage_u6e0t"]
+show_checkered = true
+
+[sub_resource type="Terrain3DTextureList" id="Terrain3DTextureList_omnuw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = SubResource("Terrain3DStorage_u6e0t")
+texture_list = SubResource("Terrain3DTextureList_omnuw")
